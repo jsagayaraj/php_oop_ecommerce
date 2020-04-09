@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 06 avr. 2020 à 20:38
+-- Généré le :  jeu. 09 avr. 2020 à 20:58
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.2.24
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `oop_ecommerce`
+-- Base de données :  `php_oop_ecommerce`
 --
 
 -- --------------------------------------------------------
@@ -85,8 +85,32 @@ INSERT INTO `category` (`catId`, `catName`) VALUES
 (4, 'Accessories'),
 (5, 'Software'),
 (6, 'Footwear'),
-(7, 'Jewellery'),
-(9, 'Bag');
+(7, 'Jewellery');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `products`
+--
+
+CREATE TABLE `products` (
+  `productId` int(11) NOT NULL,
+  `productName` varchar(250) NOT NULL,
+  `catId` int(11) NOT NULL,
+  `brandId` int(11) NOT NULL,
+  `body` text NOT NULL,
+  `price` float(10,2) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `type` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `products`
+--
+
+INSERT INTO `products` (`productId`, `productName`, `catId`, `brandId`, `body`, `price`, `image`, `type`) VALUES
+(3, 'New product', 1, 1, '<p>sdklfjsdklfjklsdjkfl</p>', 525.00, 'upload/b8a55a4e47.jpg', 0),
+(4, 'Iphone', 1, 3, '<p>Mi vel gravida eros mi elit portaest sollicitudin ipsum sed massa orci arcu pellentesque quam sollicitudin magna rutrum morbi et magna elementum vel quis metus rutrum erat sit scelerisque proin vel phasellus quam quam tortor adipiscing felis diam quis vivamus hendrerit nulla id lorem sed enim gravida eu quisque sollicitudin.<br /><br />Interdum gravida a sollicitudin gravida commodo accumsan nunc felis metus dolor erat lacus euismod purus maecenas placerat aliquam arcu elit lorem sollicitudin eros et scelerisque proin elementum lorem ut erat orci magna maecenas a maecenas facilisis amet condimentum euismod massa suspendisse vel arcu placerat consectetur dolor varius nec varius erat.</p>', 236.00, 'upload/1e3f7d3917.png', 0);
 
 --
 -- Index pour les tables déchargées
@@ -111,6 +135,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`catId`);
 
 --
+-- Index pour la table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`productId`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -131,6 +161,12 @@ ALTER TABLE `brand`
 --
 ALTER TABLE `category`
   MODIFY `catId` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `products`
+--
+ALTER TABLE `products`
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

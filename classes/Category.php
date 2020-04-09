@@ -22,8 +22,8 @@ class Category
       $catName = mysqli_real_escape_string($this->db->link, $catName);
 
      if(empty($catName)){
-         $loginMessage = "Category name must not be empty";
-         return $loginMessage;
+         $message = "Category name must not be empty";
+         return $message;
       }else{
       	$query = "INSERT INTO category (catName) VALUES ('$catName')";
       	$catInsert = $this->db->create($query);

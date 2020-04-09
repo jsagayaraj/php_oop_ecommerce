@@ -11,4 +11,12 @@ class Format{
       $data = htmlspecialchars($data);
       return $data;
    }
+
+   public function textShorten($text, $limit=200){
+   		$text = $text. "";
+   		$text = substr($text, 0, $limit);
+   		$text = $text."...";
+   		return $text;
+
+   }
 }
