@@ -2,4 +2,4 @@
 define ("DB_HOST", "localhost");
 define ("DB_USER", "root");
 define ("DB_PASSWORD", "");
-define ("DB_NAME", "OOP_Ecommerce");
+define ("DB_NAME", "php_OOP_Ecommerce");
